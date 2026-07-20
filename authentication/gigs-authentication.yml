@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://developers.gigs.com/api/authentication
+docs: https://developers.gigs.com/api/authentication
+summary:
+  types:
+  - http
+  http_scheme: bearer
+  token_location: header
+  header: Authorization
+  key_management: per-project API keys
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  format: 'Authorization: Bearer ${GIGS_TOKEN}'
+  description: 'Gigs authenticates every request with a project-scoped API key sent
+    as a Bearer token. An organization can hold multiple projects (e.g. production,
+    test, experiment), and each project issues one or more unique API keys managed
+    in the developers section of the Gigs Dashboard. A key grants full access to all
+    data in its project; rotation and expiry dates are recommended.'
+  sources:
+  - https://developers.gigs.com/api/authentication
+errors:
+  unauthenticated:
+    status: 401
+    type: unauthenticated
+    message: Invalid authorization token
+notes: No OAuth2/OIDC surface is documented; api.gigs.com returns 401 to all unauthenticated
+  requests. Keys are managed at https://dashboard.gigs.com/developers.
