@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://developers.gigs.com/api/introduction
+- https://developers.gigs.com/api/latest/events
+- https://status.gigs.com
+versioning:
+  scheme: dated-snapshot
+  current: '2026-01-29'
+  docs: https://developers.gigs.com/api/introduction
+  note: The events/schema surface reports a dated version snapshot (2026-01-29) and
+    OpenAPI 3.1.0. The API reference is addressed under /api/latest.
+status_page: https://status.gigs.com
+support: mailto:support@gigs.com
+deprecation:
+  policy_documented: false
+  note: No public deprecation/Sunset (RFC 8594) policy page was found on the developer
+    surface as of this capture.

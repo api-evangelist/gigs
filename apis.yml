@@ -1,23 +1,74 @@
 aid: gigs
 name: Gigs
-description: 'Gigs is a company surfaced as a portfolio company of ribbit-capital, speedinvest and added
-  to the API Evangelist network as a stub for enrichment. Sector: telecom. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'Gigs is the operating system for embedded telecom, giving any technology
+  brand the ability to launch and operate mobile phone and data plans without becoming
+  a mobile network operator. The Gigs Core API (base https://api.gigs.com) exposes
+  REST resources for projects, plans, users, addresses, subscriptions, SIMs (eSIM and
+  physical), devices, number portings and port-outs, add-ons, subscription changes,
+  usage and usage balances, and vouchers, secured with per-project Bearer API keys.
+  Gigs also ships Connect (a prebuilt embeddable checkout), integrated Payments, an
+  Operator automation layer, a Dashboard, and a Svix-backed webhook/event stream. Backed
+  by Ribbit Capital and Speedinvest.'
 url: https://raw.githubusercontent.com/api-evangelist/gigs/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - ribbit-capital
 - speedinvest
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-public-developer-surface
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://i.gigscdn.net/docs/v1/embedded-connectivity.png
 tags:
 - Company
 - Telecom
-apis: []
+- Connectivity
+- eSIM
+- MVNO
+- Mobile
+- Subscriptions
+- Payments
+- Webhooks
+- Embedded Finance
+apis:
+- name: Gigs Core API
+  description: 'REST API for embedded mobile connectivity: manage projects, plans,
+    users, subscriptions, SIMs (eSIM/pSIM), devices, number portings, add-ons, usage
+    and vouchers. Bearer API-key auth, cursor pagination, structured error objects,
+    and Svix-delivered webhooks.'
+  humanURL: https://developers.gigs.com/api/introduction
+  baseURL: https://api.gigs.com
+  properties:
+  - type: APIReference
+    url: https://developers.gigs.com/api/introduction
+  - type: Authentication
+    url: authentication/gigs-authentication.yml
+  - type: ErrorCatalog
+    url: errors/gigs-error-codes.yml
+  - type: DeclineCodes
+    url: errors/gigs-decline-codes.yml
+  - type: Conventions
+    url: conventions/gigs-conventions.yml
+  - type: DataModel
+    url: data-model/gigs-data-model.yml
+  - type: Webhooks
+    url: asyncapi/gigs-events-webhooks.yml
+  - type: MCPServer
+    url: mcp/gigs-mcp.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -26,3 +77,70 @@ maintainers:
 common:
 - type: Website
   url: https://gigs.com
+- type: DeveloperPortal
+  url: https://developers.gigs.com
+- type: Documentation
+  url: https://developers.gigs.com/docs/create-a-subscription
+- type: APIReference
+  url: https://developers.gigs.com/api/introduction
+- type: GettingStarted
+  url: https://developers.gigs.com/docs/create-a-subscription
+- type: Support
+  url: mailto:support@gigs.com
+- type: Blog
+  url: https://gigs.com/blog
+- type: GitHubOrganization
+  url: https://github.com/gigs
+- type: SignUp
+  url: https://dashboard.gigs.com
+- type: Login
+  url: https://dashboard.gigs.com
+- type: TermsOfService
+  url: https://gigs.com/legal
+- type: PrivacyPolicy
+  url: https://gigs.com/legal/privacy-policy
+- type: StatusPage
+  url: https://status.gigs.com
+- type: TrustCenter
+  url: https://trust.gigs.com
+- type: SecurityTxt
+  url: well-known/gigs-security.txt
+- type: WellKnown
+  url: well-known/gigs-well-known.yml
+- type: Authentication
+  url: authentication/gigs-authentication.yml
+- type: ErrorCatalog
+  url: errors/gigs-error-codes.yml
+- type: DeclineCodes
+  url: errors/gigs-decline-codes.yml
+- type: Conventions
+  url: conventions/gigs-conventions.yml
+- type: DataModel
+  url: data-model/gigs-data-model.yml
+- type: Webhooks
+  url: asyncapi/gigs-events-webhooks.yml
+- type: MCPServer
+  url: mcp/gigs-mcp.yml
+- type: Conformance
+  url: conformance/gigs-conformance.yml
+- type: Lifecycle
+  url: lifecycle/gigs-lifecycle.yml
+- type: Sandbox
+  url: sandbox/gigs-sandbox.yml
+- type: Components
+  url: components/gigs-components.yml
+- type: DomainSecurity
+  url: security/gigs-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/gigs-vulnerability-disclosure.yml
+- type: Security
+  url: https://gigs.com/security/vulnerability-disclosure
+- type: LLMsTxt
+  url: llms/gigs-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

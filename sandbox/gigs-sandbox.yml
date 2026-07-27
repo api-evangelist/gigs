@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://developers.gigs.com/api/authentication
+- https://developers.gigs.com/api/introduction
+model: project-scoped-environments
+description: Gigs separates test from live using distinct projects rather than key
+  prefixes. An organization can hold multiple projects (e.g. production, test, experiment),
+  and each project issues its own API key. Testing is done against a non-production
+  project's key so data never mixes with live connectivity.
+environments:
+- name: production
+  description: Live project issuing real connectivity subscriptions.
+- name: test
+  description: Non-production project for integration testing.
+- name: experiment
+  description: Additional non-production project for experimentation.
+key_management: https://dashboard.gigs.com/developers
+notes: No public catalog of magic test values (test ICCIDs, test cards, test phone
+  numbers) was found on the developer docs as of this capture; project setup is arranged
+  via support@gigs.com. Not fabricating test values.

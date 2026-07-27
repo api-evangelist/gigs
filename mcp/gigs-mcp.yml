@@ -1,0 +1,41 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: https://developers.gigs.com/api/introduction
+note: No official Gigs MCP server was found on the developer surface, npm (@modelcontextprotocol),
+  or public MCP registries as of this capture. The tools below are a CANDIDATE list
+  derived from the documented Gigs Core API resource operations (real HTTP method +
+  path from the public docs); they are not published Gigs tools.
+server:
+  name: gigs
+  transport: http
+  base_url: https://api.gigs.com
+  auth: bearer (project API key)
+tools:
+- name: list_projects
+  description: List the projects accessible to the API key.
+  source_operation: GET /projects
+- name: list_plans
+  description: List the connectivity plans available in a project.
+  source_operation: GET /projects/{project}/plans
+- name: create_user
+  description: Create an end user in a project.
+  source_operation: POST /projects/{project}/users
+- name: list_users
+  description: List users in a project.
+  source_operation: GET /projects/{project}/users
+- name: create_subscription
+  description: Create a connectivity subscription for a user on a plan.
+  source_operation: POST /projects/{project}/subscriptions
+- name: get_subscription
+  description: Retrieve a subscription.
+  source_operation: GET /projects/{project}/subscriptions/{subscription}
+- name: list_subscriptions
+  description: List subscriptions in a project.
+  source_operation: GET /projects/{project}/subscriptions
+- name: create_porting
+  description: Request an inbound number porting for a subscription.
+  source_operation: POST /projects/{project}/portings
+- name: get_usage_balance
+  description: Retrieve remaining allowance balances for a subscription.
+  source_operation: GET /projects/{project}/subscriptions/{subscription}/usageBalances

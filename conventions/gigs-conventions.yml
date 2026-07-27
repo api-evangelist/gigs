@@ -1,0 +1,63 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://developers.gigs.com/api/introduction
+- https://developers.gigs.com/api/authentication
+- https://developers.gigs.com/api/pagination
+- https://developers.gigs.com/api/error-handling
+- https://developers.gigs.com/docs/core/events/events-webhooks
+base_url: https://api.gigs.com
+authentication:
+  style: bearer-token
+  header: Authorization
+  format: 'Bearer ${GIGS_TOKEN}'
+  scope: project-scoped API keys
+  see: authentication/gigs-authentication.yml
+pagination:
+  style: cursor
+  params:
+  - name: after
+    description: Return items following the given object id (mutually exclusive with before).
+  - name: before
+    description: Return items preceding the given object id (mutually exclusive with after).
+  - name: limit
+    description: Number of items to return, integer 0-200, default 10.
+  response_fields:
+  - object    # constant "list"
+  - items     # array of resources
+  - moreItemsAfter   # id to use as next `after`, or null
+  - moreItemsBefore  # id to use as next `before`, or null
+resource_envelope:
+  description: Every resource carries an `object` discriminator field naming its type
+    (e.g. project, plan, user, subscription); list responses wrap results in items[]
+    with the cursor fields above.
+  example:
+    object: list
+    items: []
+    moreItemsAfter: null
+    moreItemsBefore: null
+error_envelope:
+  shape: {object: error, type: string, code: string, message: string, hint: string, documentation: [string]}
+  see: errors/gigs-error-codes.yml
+identifiers:
+  style: prefixed opaque ids
+  examples:
+    plan: pln_...
+    user: usr_...
+versioning:
+  style: dated snapshot versions
+  observed_version: '2026-01-29'
+  note: 'The events/schema surface reports a dated version ("Version: 2026-01-29")
+    and OpenAPI 3.1.0; see lifecycle/gigs-lifecycle.yml.'
+webhooks:
+  delivery: Svix
+  verification_headers: [webhook-id, webhook-signature, webhook-timestamp]
+  ordering: not strictly guaranteed (events processed and delivered in parallel)
+  see: asyncapi/gigs-events-webhooks.yml
+idempotency:
+  documented: false
+  note: No idempotency-key header or retry-safety contract is documented on the public
+    developer surface as of this capture; not asserted to avoid fabrication.
+rate_limiting:
+  documented: false
+  note: No public rate-limit header/policy documentation was found.

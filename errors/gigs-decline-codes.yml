@@ -1,0 +1,44 @@
+generated: '2026-07-19'
+method: searched
+source: https://developers.gigs.com/api/error-codes
+docs: https://developers.gigs.com/api/error-codes
+note: Gigs bills subscriptions through its integrated Payments product, so card and
+  payment-method failures surface as machine-readable error codes on the standard
+  error object (object=error, field `code`). These complement errors/gigs-error-codes.yml
+  (the full API error registry) and are the payment-decline subset a buyer-facing
+  checkout must handle.
+envelope_field: code
+decline_codes:
+- code: paymentCardDeclined
+  meaning: The card has been declined by the issuer.
+  action: Ask the customer to use a different card or contact their bank.
+- code: paymentCardCvcInvalid
+  meaning: The CVC / security number is incorrect.
+  action: Re-collect the CVC and retry.
+- code: paymentCardExpired
+  meaning: The card has expired.
+  action: Collect an unexpired card.
+- code: paymentCardInsufficientFunds
+  meaning: The card has insufficient funds.
+  action: Ask the customer to use a different payment method.
+- code: paymentCardNotSupported
+  meaning: The card does not support this type of purchase.
+  action: Try a different card or payment method.
+- code: paymentCardNumberInvalid
+  meaning: The card number is incorrect.
+  action: Re-collect and validate the card number.
+- code: paymentFailed
+  meaning: An error occurred while processing the payment.
+  action: Try again later or with a different payment method.
+- code: paymentMethodDeclined
+  meaning: An error occurred while processing the payment method.
+  action: Try again later or with a different payment method.
+- code: paymentMethodAccountInvalid
+  meaning: The payment method account is invalid.
+  action: Re-collect the payment method details.
+- code: paymentMethodRequired
+  meaning: A valid payment method must be provided to continue with the payment.
+  action: Attach a valid payment method before retrying.
+- code: paymentRefundAmountExceeded
+  meaning: Refund amount exceeds the remaining unrefunded amount.
+  action: Reduce the refund amount to at most the remaining balance.

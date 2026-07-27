@@ -1,0 +1,24 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of /.well-known/ on gigs.com and api.gigs.com
+hosts:
+- host: https://gigs.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: gigs-security.txt
+- host: https://api.gigs.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+notes: The Gigs Core API host (api.gigs.com) requires a Bearer API key on every path
+  and returns 401 for all unauthenticated /.well-known/ probes; only the corporate
+  host publishes a public security.txt (RFC 9116).

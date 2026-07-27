@@ -1,0 +1,110 @@
+generated: '2026-07-19'
+method: searched
+source: https://developers.gigs.com/api/error-handling
+docs:
+- https://developers.gigs.com/api/error-handling
+- https://developers.gigs.com/api/error-codes
+format: custom-error-object
+envelope:
+  object: error
+  fields:
+  - name: type
+    description: The type of the error returned (e.g. invalid, unauthenticated).
+  - name: code
+    description: Optional machine-readable description of the error, present for errors
+      that can be handled programmatically.
+  - name: message
+    description: Human-readable description of the error.
+  - name: hint
+    description: Optional explanation of how to resolve the error.
+  - name: documentation
+    description: Optional list of documentation URLs relevant to the error.
+  example:
+    object: error
+    type: invalid
+    code: invalidIccid
+    message: Invalid ICCID format.
+    hint: Parameter iccid must match /^([0-9]{19}F?|[0-9]{20})$/i
+    documentation:
+    - https://developers.gigs.com/api/error-handling
+principles:
+  hierarchy_of_failure: Errors are surfaced in order of location and severity - headers,
+    then URL path, then query/body - so a missing auth header returns 401 before any
+    400 validation error.
+  strictness: Requests that do not conform to the spec fail with a helpful message
+    rather than being healed; unknown params, wrong types, malformed formats, and
+    out-of-enum values all raise errors.
+error_types:
+- status: 400
+  type: malformed
+  description: The request has incorrect syntax, such as an unparseable JSON body.
+- status: 401
+  type: unauthenticated
+  description: The request doesn't have the required credentials.
+- status: 403
+  type: permissionDenied
+  description: The authenticated user doesn't have permissions to perform the request.
+- status: 404
+  type: notFound
+  description: The requested resource doesn't exist.
+- status: 400
+  type: invalid
+  description: A parameter value is invalid (wrong type, format, or not in the documented
+    enum).
+error_codes:
+- {code: deviceAlreadyUsed, area: device, description: The device is already used by another resource.}
+- {code: deviceBlocked, area: device, description: Device is blocked by the provider.}
+- {code: deviceImeiAlreadyExists, area: device, description: The IMEI provided is already assigned to another device.}
+- {code: deviceNotSupported, area: device, description: Device is not supported by the provider.}
+- {code: deviceNotSupportedOnPlan, area: device, description: Device cannot be used with the specified network plan.}
+- {code: deviceSimAlreadyUsed, area: device, description: The SIM provided is already used on another device.}
+- {code: memberAlreadyExists, area: member, description: A member with the same email address already exists.}
+- {code: orderExpired, area: order, description: The order has expired and can not be confirmed anymore.}
+- {code: paymentCardCvcInvalid, area: payment, description: The CVC number is incorrect.}
+- {code: paymentCardDeclined, area: payment, description: The card has been declined.}
+- {code: paymentCardExpired, area: payment, description: The card has expired.}
+- {code: paymentCardInsufficientFunds, area: payment, description: The card has insufficient funds.}
+- {code: paymentCardNotSupported, area: payment, description: The card does not support this type of purchase.}
+- {code: paymentCardNumberInvalid, area: payment, description: The card number is incorrect.}
+- {code: paymentFailed, area: payment, description: An error occurred while processing the payment. Try again later or with a different payment method.}
+- {code: paymentMethodAccountInvalid, area: payment, description: The payment method account is invalid.}
+- {code: paymentMethodDeclined, area: payment, description: An error occurred while processing the payment method. Try again later or with a different payment method.}
+- {code: paymentMethodRequired, area: payment, description: A valid payment method must be provided to continue with the payment.}
+- {code: paymentRefundAmountExceeded, area: payment, description: Refund amount exceeds the remaining unrefunded amount.}
+- {code: portOutAlreadyExists, area: porting, description: There is already an open port out for this subscription.}
+- {code: portOutConflictsWithPorting, area: porting, description: Porting out is not supported when a porting is in progress.}
+- {code: portingAccountPinForCancelOnlyBehaviorInvalid, area: porting, description: For cancelOnly behavior, porting account pin must start with 6 digits followed by 3 letters.}
+- {code: portingAccountPinForPortInBehaviorInvalid, area: porting, description: For portIn behavior, porting account pin must start with 3 letters followed by 6 digits.}
+- {code: portingAlreadyCanceled, area: porting, description: Porting is already canceled.}
+- {code: portingAlreadyExists, area: porting, description: There is already an open porting request for this phone number.}
+- {code: portingAttributeUpdateNotSupported, area: porting, description: Some of the attributes are not updatable for the porting.}
+- {code: portingCancellationBehaviorNotSupported, area: porting, description: Subscription provider does not support cancelling previous service.}
+- {code: portingConflictsWithPortOut, area: porting, description: Porting in is not supported when a port out is in progress.}
+- {code: portingDonorProviderNotFound, area: porting, description: Donor service provider could not be found.}
+- {code: portingNotCancelable, area: porting, description: Porting cannot be canceled in its current state.}
+- {code: portingNotDeletable, area: porting, description: Porting cannot be deleted as it is not in draft state.}
+- {code: portingNotSupported, area: porting, description: The phone number can't be ported to the provider.}
+- {code: portingNotUpdatable, area: porting, description: Porting cannot be updated as it is in progress or completed.}
+- {code: portingPerUserLimitExceeded, area: porting, description: User already has maximum allowed draft portings.}
+- {code: portingPhoneNumberBlocked, area: porting, description: The phone number is blocked for porting.}
+- {code: portingProviderMismatch, area: porting, description: Provider of subscription and recipient provider of porting don't match.}
+- {code: portingProviderNotFound, area: porting, description: Subscription provider could not be found.}
+- {code: portingScheduleNotSupported, area: porting, description: Subscription provider does not support scheduled portings.}
+- {code: portingScheduledOnInvalid, area: porting, description: Porting cannot be scheduled in the past.}
+- {code: portingUserAddressRequired, area: porting, description: User address must be set for porting to the subscription provider.}
+- {code: serviceUnavailable, area: system, description: Service is currently unavailable and we've been automatically notified.}
+- {code: simAlreadyUsed, area: sim, description: SIM already in use with an existing subscription.}
+- {code: subscriptionChangeAllowanceDecrease, area: subscription, description: The plan cannot be changed immediately because the new plan offers fewer allowances.}
+- {code: subscriptionChangeProviderMismatch, area: subscription, description: The replacement SIM provider is not compatible with the subscription plan.}
+- {code: subscriptionChangeProviderTransitionNotSupported, area: subscription, description: The provider change requested by this subscription change is not supported.}
+- {code: subscriptionPlanChangeTooCloseToRenewal, area: subscription, description: Plan change cannot be scheduled this close to the renewal.}
+- {code: subscriptionPortingAlreadyCompleted, area: subscription, description: Subscription already has a completed porting.}
+- {code: subscriptionPortingAlreadyOpen, area: subscription, description: Subscription has an open porting.}
+- {code: unknown, area: system, description: An unexpected error has occurred and we've been automatically notified.}
+- {code: userAddressAlreadyExists, area: user, description: Address already exists.}
+- {code: userAddressInvalid, area: user, description: The given address is not valid.}
+- {code: userAlreadyExists, area: user, description: A user with the same email address already exists.}
+- {code: voucherCodeExpired, area: voucher, description: Voucher code has expired.}
+- {code: voucherCodeInvalid, area: voucher, description: Voucher code is invalid.}
+- {code: voucherCodeNotFound, area: voucher, description: The voucher code could not be found.}
+- {code: voucherNotFound, area: voucher, description: The voucher could not be found.}

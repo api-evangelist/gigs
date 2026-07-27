@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://gigs.com/connect
+- https://gigs.com/dashboard
+- https://github.com/gigs/connect-sessions-buy-manage-example
+note: Gigs ships prebuilt, embeddable front-end surfaces distinct from server-side
+  SDKs. Captured from the public product pages and the official Connect Sessions example repo.
+component_families:
+- family: Connect
+  kind: embeddable-checkout
+  description: A prebuilt checkout flow that lets a brand's customers select and buy
+    a connectivity plan and manage their subscription, embedded into the brand's own
+    product. Integrated via Connect Sessions.
+  url: https://gigs.com/connect
+  example: https://github.com/gigs/connect-sessions-buy-manage-example
+- family: Dashboard
+  kind: hosted-operator-console
+  description: A hosted operations and support cockpit for managing plans, subscriptions,
+    users, events, and webhooks.
+  url: https://dashboard.gigs.com
+notes: The Connect Sessions example is an official TypeScript reference implementation
+  in the Gigs GitHub org demonstrating buying and managing subscriptions.

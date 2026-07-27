@@ -1,0 +1,40 @@
+# Gigs
+
+> Gigs is the operating system for embedded telecom: an API and platform that lets any technology brand launch and operate mobile phone and data plans (eSIM and physical SIM) without becoming a mobile network operator. The Gigs Core API manages projects, plans, users, subscriptions, SIMs, devices, number portings, add-ons, usage, and vouchers, with Bearer API-key auth, cursor pagination, structured error objects, and Svix-delivered webhooks.
+
+## APIs
+- [Gigs Core API — Introduction](https://developers.gigs.com/api/introduction): Getting started with the REST API (base https://api.gigs.com).
+- [Authentication](https://developers.gigs.com/api/authentication): Project-scoped Bearer API keys.
+- [Pagination](https://developers.gigs.com/api/pagination): Cursor pagination with after/before/limit.
+- [Error handling](https://developers.gigs.com/api/error-handling): Error object shape and principles.
+- [Error codes](https://developers.gigs.com/api/error-codes): Machine-readable error/decline code registry.
+- [Events and Webhooks](https://developers.gigs.com/docs/core/events/events-webhooks): com.gigs.* events via Svix.
+
+## Guides
+- [Create a subscription](https://developers.gigs.com/docs/create-a-subscription): Activate an eSIM subscription in a few API calls.
+- [Activate physical SIMs](https://developers.gigs.com/docs/core/activate-physical-sims): SIM activation flow.
+
+## Products
+- [Connect](https://gigs.com/connect): Prebuilt embeddable checkout.
+- [Payments](https://gigs.com/payments): Integrated billing.
+- [Operator](https://gigs.com/operator): Automation layer.
+- [Dashboard](https://dashboard.gigs.com): Operations and support console.
+
+## Operations
+- [Status page](https://status.gigs.com)
+- [Trust center](https://trust.gigs.com)
+- [Security policy](https://gigs.com/security/vulnerability-disclosure)
+- [security.txt](https://gigs.com/.well-known/security.txt)
+
+## Artifacts (API Evangelist enrichment)
+- Authentication: authentication/gigs-authentication.yml
+- Error catalog: errors/gigs-error-codes.yml
+- Decline codes: errors/gigs-decline-codes.yml
+- Conventions: conventions/gigs-conventions.yml
+- Data model: data-model/gigs-data-model.yml
+- Webhooks: asyncapi/gigs-events-webhooks.yml
+- MCP (candidate): mcp/gigs-mcp.yml
+- Conformance: conformance/gigs-conformance.yml
+- Lifecycle: lifecycle/gigs-lifecycle.yml
+- Sandbox: sandbox/gigs-sandbox.yml
+- Components: components/gigs-components.yml

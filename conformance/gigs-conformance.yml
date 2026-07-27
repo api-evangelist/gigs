@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://developers.gigs.com/api/introduction
+- https://developers.gigs.com/api/error-handling
+- https://developers.gigs.com/api/pagination
+- https://developers.gigs.com/docs/core/events/events-webhooks
+standards:
+- id: rest
+  conforms: true
+  evidence: Resource-oriented HTTP API following REST best practices (documented).
+- id: bearer-token-auth
+  conforms: true
+  evidence: Authorization Bearer API-key scheme (RFC 6750 style).
+- id: cursor-pagination
+  conforms: true
+  evidence: after/before/limit cursor pagination with moreItemsAfter/moreItemsBefore.
+- id: http-status-conventions
+  conforms: true
+  evidence: 2xx/4xx/5xx status blocks documented in error-handling.
+- id: openapi-3.1
+  conforms: true
+  evidence: Events surface reports OpenAPI 3.1.0; API reference generated from an OpenAPI description.
+- id: webhooks-svix
+  conforms: true
+  evidence: Webhook delivery via Svix with webhook-id/webhook-signature/webhook-timestamp verification headers.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Uses a custom {object:error,type,code,message,hint,documentation} envelope, not application/problem+json.
+- id: oauth2
+  conforms: false
+  evidence: No OAuth2/OIDC flows documented; project API keys only.
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: Publishes /.well-known/security.txt on gigs.com.

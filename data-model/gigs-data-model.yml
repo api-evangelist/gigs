@@ -1,0 +1,117 @@
+generated: '2026-07-19'
+method: searched
+source:
+- https://developers.gigs.com/api/introduction
+- https://developers.gigs.com/docs/create-a-subscription
+- https://developers.gigs.com/api/error-codes
+note: Entity graph derived from the documented Gigs Core API resource surface and
+  the create-a-subscription guide. id-prefixes captured where published (pln_, usr_);
+  others marked unknown rather than invented.
+entities:
+- name: project
+  domain: platform
+  description: The top-level container for an organization's plans, users, and subscriptions;
+    each project has its own API key. Path root - /projects/{project}/...
+- name: plan
+  id_prefix: pln_
+  domain: catalog
+  description: A purchasable connectivity plan with allowances (dataBytes, voiceSeconds,
+    smsMessages), coverage, price, provider, simTypes (eSIM/pSIM), and validity.
+- name: user
+  id_prefix: usr_
+  domain: customer
+  description: An end customer of the project, with email, fullName, preferredLocale,
+    birthday.
+- name: userAddress
+  domain: customer
+  description: A postal address belonging to a user; required for some portings.
+- name: subscription
+  domain: connectivity
+  description: An active connectivity subscription linking a user, a plan, and a SIM.
+- name: sim
+  domain: connectivity
+  description: An eSIM or physical SIM provisioned for a subscription.
+- name: device
+  domain: connectivity
+  description: A hardware device (by IMEI) that a SIM/subscription can be associated with.
+- name: porting
+  domain: numbering
+  description: An inbound number-porting request bringing an existing phone number to a subscription.
+- name: portOut
+  domain: numbering
+  description: An outbound port taking a number away from a subscription.
+- name: subscriptionChange
+  domain: connectivity
+  description: A scheduled or immediate change to a subscription (e.g. plan change).
+- name: subscriptionAddon
+  domain: connectivity
+  description: An add-on (e.g. data top-up) applied to a subscription.
+- name: addon
+  domain: catalog
+  description: A purchasable add-on offered on top of a plan.
+- name: usage
+  domain: telemetry
+  description: Usage records for a subscription (data/voice/sms).
+- name: usageBalance
+  domain: telemetry
+  description: Remaining allowance balances for a subscription.
+- name: voucher
+  domain: commerce
+  description: A promotional voucher code redeemable against a purchase.
+relationships:
+- from: project
+  to: plan
+  type: has_many
+  via: /projects/{project}/plans
+- from: project
+  to: user
+  type: has_many
+  via: /projects/{project}/users
+- from: project
+  to: subscription
+  type: has_many
+  via: /projects/{project}/subscriptions
+- from: subscription
+  to: user
+  type: belongs_to
+  via: user
+- from: subscription
+  to: plan
+  type: belongs_to
+  via: plan
+- from: subscription
+  to: sim
+  type: has_one
+  via: sim
+- from: subscription
+  to: porting
+  type: has_one
+  via: porting
+- from: subscription
+  to: subscriptionChange
+  type: has_many
+  via: subscriptionChange
+- from: subscription
+  to: subscriptionAddon
+  type: has_many
+  via: subscriptionAddon
+- from: subscription
+  to: usage
+  type: has_many
+  via: usage
+- from: subscription
+  to: usageBalance
+  type: has_many
+  via: usageBalance
+- from: user
+  to: userAddress
+  type: has_many
+  via: address
+- from: sim
+  to: device
+  type: has_one
+  via: device
+- from: subscriptionAddon
+  to: addon
+  type: belongs_to
+  via: addon

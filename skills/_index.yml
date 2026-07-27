@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: generated
+note: Agent Skills grounded in real documented Gigs Core API operations (HTTP method
+  + path from the public developer docs). No machine-readable OpenAPI is published,
+  so operations are listed as verbatim documented HTTP calls rather than operationIds.
+api: Gigs Core API
+skills:
+- file: gigs-activate-esim-subscription.md
+  name: Activate an eSIM subscription
+  operations:
+  - GET /projects
+  - GET /projects/{project}/plans
+  - POST /projects/{project}/users
+  - POST /projects/{project}/subscriptions
+- file: gigs-handle-webhooks.md
+  name: Handle Gigs webhooks
+  operations:
+  - Configure webhook endpoint
+  - Verify webhook-id / webhook-signature / webhook-timestamp
+  - Process com.gigs.* event payloads

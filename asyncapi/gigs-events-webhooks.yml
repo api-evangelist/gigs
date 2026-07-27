@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+type: Webhooks
+source:
+- https://developers.gigs.com/docs/core/events/events-webhooks
+- https://developers.gigs.com/api/latest/events
+spec_type: webhook-catalog
+note: Gigs documents an event/webhook surface (event catalog version 2026-01-29, OpenAPI
+  3.1.0) but does not publish a machine-readable AsyncAPI document; this is the documented
+  webhook catalog, not a fabricated spec.
+delivery:
+  provider: Svix
+  management: Manage Webhooks dashboard at https://dashboard.gigs.com/developers
+  verification:
+    headers: [webhook-id, webhook-signature, webhook-timestamp]
+    docs: https://docs.svix.com/receiving/verifying-payloads/how
+  retries: Svix retries; endpoint auto-disabled after ~5 days of continuous failure
+  ordering: not strictly guaranteed (parallel delivery)
+event_model:
+  type_prefix: com.gigs.
+  payload_field: data
+  update_payload_extra: previousData (previous values of changed fields on *.updated events)
+  schema_reference: https://developers.gigs.com/events/schemas/{eventType}
+events:
+- type: com.gigs.subscription.activated
+  description: A created subscription has been activated by the network provider and is ready to use.
+- type: com.gigs.subscription.renewed
+  description: A subscription has been renewed.
+- type: com.gigs.subscriptionChange.applied
+  description: A scheduled requested change to a subscription has been successfully applied.
+- type: com.gigs.porting.requested
+  description: A request for porting a number has been sent to the network provider.
+- type: com.gigs.device.updated
+  description: Any change to a device resource.
+- type: com.gigs.usageThreshold.exceeded
+  description: A threshold in the subscription allowance was exceeded (e.g. 50% of the data limit used).
+- type: com.gigs.eSimProfile.downloaded
+  description: An eSIM profile has been downloaded to a device.
+- type: com.gigs.apiKey.created
+  description: An API key has been created (referenced as the events reference anchor).
+notes: This is an illustrative subset of the documented events; the full list is published
+  in the Gigs Events section of the docs. Every event type starts with the com.gigs.
+  prefix and carries a data payload; *.updated events additionally carry previousData.

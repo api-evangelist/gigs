@@ -1,0 +1,7 @@
+Contact: mailto:security@gigs.com
+Expires: 2026-07-20T10:35:40.901Z
+Policy: https://gigs.com/security/vulnerability-disclosure
+Encryption: https://gigs.com/.well-known/openpgpkey/hu/t5s8ztdbon8yzntexy6oz5y48etqsnbb
+Preferred-Languages: en, de
+Canonical: https://gigs.com/.well-known/security.txt
+Hiring: https://gigs.com/careers
