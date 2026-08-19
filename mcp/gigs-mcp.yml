@@ -2,10 +2,10 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: https://developers.gigs.com/api/introduction
-note: No official Gigs MCP server was found on the developer surface, npm (@modelcontextprotocol),
-  or public MCP registries as of this capture. The tools below are a CANDIDATE list
-  derived from the documented Gigs Core API resource operations (real HTTP method +
-  path from the public docs); they are not published Gigs tools.
+note: No official Gigs MCP server was found on the developer surface, npm (@modelcontextprotocol), or
+  public MCP registries as of this capture. The tools below are a CANDIDATE list derived from the documented
+  Gigs Core API resource operations (real HTTP method + path from the public docs); they are not published
+  Gigs tools.
 server:
   name: gigs
   transport: http
@@ -39,3 +39,9 @@ tools:
 - name: get_usage_balance
   description: Retrieve remaining allowance balances for a subscription.
   source_operation: GET /projects/{project}/subscriptions/{subscription}/usageBalances
+deployment:
+  mode: none
+  verified: derived
+  tools: 9
+  checked: '2026-08-12'
+  source: catalog MCP census
