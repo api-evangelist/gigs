@@ -64,6 +64,110 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Gigs is a company surfaced as a portfolio company of ribbit-capital, speedinvest and added to the API Evangelist network as a stub for enrichment. Sector: telecom. This profile is a lead awaiting the enrichment pipeline.
+Gigs is the operating system for embedded telecom, giving any technology brand the ability to launch and operate mobile phone and data plans without becoming a mobile network operator. The Gigs Core API (base https://api.gigs.com) exposes REST resources for projects, plans, users, addresses, subscriptions, SIMs (eSIM and physical), devices, number portings and port-outs, add-ons, subscription changes, usage and usage balances, and vouchers, secured with per-project Bearer API keys. Gigs also ships Connect (a prebuilt embeddable checkout), integrated Payments, an Operator automation layer, a Dashboard, and a Svix-backed webhook/event stream. Backed by Ribbit Capital and Speedinvest.
 
-Backed by: ribbit-capital, speedinvest — https://gigs.com
+**Areas:** Company · Telecommunications · Connectivity · eSIM · MVNO · Mobile · Subscription · Payments · Webhook · Embedded Finance
+
+## Gigs on APIs.io
+
+Everything profiled for Gigs is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gigs/](https://apis.io/providers/gigs/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Gigs Core API](https://apis.io/apis/gigs/gigs-core-api/) — REST API for embedded mobile connectivity: manage projects, plans, users, subscriptions, SIMs (eSIM/pSIM), devices, number portings, add-ons, usage and…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Gigs Events Webhooks](https://apis.io/asyncapis/gigs/gigs-events-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [gigs](https://apis.io/servers/gigs/gigs/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gigs Authentication](https://apis.io/security/gigs/gigs-authentication/)
+- [Gigs Domain Security](https://apis.io/security/gigs/gigs-domain-security/)
+- [Gigs Vulnerability Disclosure](https://apis.io/security/gigs/gigs-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://gigs.com)
+- [Documentation](https://developers.gigs.com/docs/create-a-subscription)
+- [Getting started](https://developers.gigs.com/docs/create-a-subscription)
+- [API reference](https://developers.gigs.com/api/introduction)
+- [Sign up](https://dashboard.gigs.com)
+- [Blog](https://gigs.com/blog)
+- [Security](https://gigs.com/security/vulnerability-disclosure)
+- [Trust centre](https://trust.gigs.com)
+- [Terms of service](https://gigs.com/legal)
+- [Privacy policy](https://gigs.com/legal/privacy-policy)
+- [GitHub](https://github.com/gigs)
+- [Status](https://status.gigs.com)
+
+## API Evangelist rating
+
+**Kin Score 44.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 28.9 |
+
+**Agent readiness 23.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 30.0** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gigs/](https://apis.io/providers/gigs/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gigs: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gigs/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
